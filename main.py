@@ -34,5 +34,5 @@ async def echo(message: types.Message):
     await handle_message(message)
 
 # Start the bot
-if name == 'main':
+if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
