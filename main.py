@@ -27,7 +27,12 @@ async def handle_message(message: types.Message):
     )
     response = chat_completion.choices[0].message.content
     await message.reply(response)
-    
+
+# Register the handler for incoming messages
+@dp.message_handler()
+async def echo(message: types.Message):
+    await handle_message(message)
+
 # Start the bot
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
